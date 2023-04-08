@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "MyForm.h"
 #include <Windows.h>
 #include <tchar.h>
@@ -29,7 +29,7 @@ namespace HUNTMMR2 {
 	using namespace System::Collections::Generic;
 
 	/// <summary>
-	/// Сводка для MyForm
+	/// РЎРІРѕРґРєР° РґР»СЏ MyForm
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
@@ -38,13 +38,13 @@ namespace HUNTMMR2 {
 		{
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: РґРѕР±Р°РІСЊС‚Рµ РєРѕРґ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~MyForm()
 		{
@@ -78,14 +78,14 @@ namespace HUNTMMR2 {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -112,7 +112,7 @@ namespace HUNTMMR2 {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(214, 46);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Показать результат";
+			this->button2->Text = L"РџРѕРєР°Р·Р°С‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click2);
 			// 
@@ -124,7 +124,7 @@ namespace HUNTMMR2 {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(562, 36);
 			this->label1->TabIndex = 5;
-			this->label1->Text = L"Укажите путь к файлу с данными в Вашей библиотеке\r\n Steam: \"...\\steamapps\\common\\"
+			this->label1->Text = L"РЈРєР°Р¶РёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ СЃ РґР°РЅРЅС‹РјРё РІ Р’Р°С€РµР№ Р±РёР±Р»РёРѕС‚РµРєРµ\r\n Steam: \"...\\steamapps\\common\\"
 				L"Hunt Showdown\\user\\profiles\\default\\attributes.xml\"";
 			// 
 			// listBox1
@@ -154,7 +154,7 @@ namespace HUNTMMR2 {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(174, 17);
 			this->label4->TabIndex = 9;
-			this->label4->Text = L"Никнейм Steam аккаунта";
+			this->label4->Text = L"РќРёРєРЅРµР№Рј Steam Р°РєРєР°СѓРЅС‚Р°";
 			// 
 			// listBox2
 			// 
@@ -172,7 +172,7 @@ namespace HUNTMMR2 {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(214, 46);
 			this->button1->TabIndex = 11;
-			this->button1->Text = L"Отчиска XML файла от игроков";
+			this->button1->Text = L"РћС‚С‡РёСЃРєР° XML С„Р°Р№Р»Р° РѕС‚ РёРіСЂРѕРєРѕРІ";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click1);
 			// 
@@ -194,7 +194,7 @@ namespace HUNTMMR2 {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(266, 36);
 			this->label5->TabIndex = 13;
-			this->label5->Text = L"— по нажатию покажет информацию,\r\n  без каких либо изменений";
+			this->label5->Text = L"вЂ” РїРѕ РЅР°Р¶Р°С‚РёСЋ РїРѕРєР°Р¶РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ,\r\n  Р±РµР· РєР°РєРёС… Р»РёР±Рѕ РёР·РјРµРЅРµРЅРёР№";
 			// 
 			// button3
 			// 
@@ -203,7 +203,7 @@ namespace HUNTMMR2 {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(214, 46);
 			this->button3->TabIndex = 14;
-			this->button3->Text = L"Показать и отчистить";
+			this->button3->Text = L"РџРѕРєР°Р·Р°С‚СЊ Рё РѕС‚С‡РёСЃС‚РёС‚СЊ";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
@@ -215,7 +215,7 @@ namespace HUNTMMR2 {
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(231, 36);
 			this->label6->TabIndex = 15;
-			this->label6->Text = L"— по нажатию,\r\n удалит данные игроков из XML";
+			this->label6->Text = L"вЂ” РїРѕ РЅР°Р¶Р°С‚РёСЋ,\r\n СѓРґР°Р»РёС‚ РґР°РЅРЅС‹Рµ РёРіСЂРѕРєРѕРІ РёР· XML";
 			// 
 			// label7
 			// 
@@ -225,7 +225,7 @@ namespace HUNTMMR2 {
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(266, 36);
 			this->label7->TabIndex = 16;
-			this->label7->Text = L"— по нажатию покажет информацию,\r\n  и автоматически отчистит XML";
+			this->label7->Text = L"вЂ” РїРѕ РЅР°Р¶Р°С‚РёСЋ РїРѕРєР°Р¶РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ,\r\n  Рё Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РѕС‚С‡РёСЃС‚РёС‚ XML";
 			// 
 			// label8
 			// 
@@ -234,8 +234,8 @@ namespace HUNTMMR2 {
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(185, 65);
 			this->label8->TabIndex = 17;
-			this->label8->Text = L"P.S. Из-за отчиски файла,\r\n в главном меню будет предлагать\r\n залогинится учёткой"
-				L" крайтек,\r\n для получения 5000 доларов.\r\n Это баг, деньги не дадут";
+			this->label8->Text = L"P.S. РР·-Р·Р° РѕС‚С‡РёСЃРєРё С„Р°Р№Р»Р°,\r\n РІ РіР»Р°РІРЅРѕРј РјРµРЅСЋ Р±СѓРґРµС‚ РїСЂРµРґР»Р°РіР°С‚СЊ\r\n Р·Р°Р»РѕРіРёРЅРёС‚СЃСЏ СѓС‡С‘С‚РєРѕР№"
+				L" РєСЂР°Р№С‚РµРє,\r\n РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ 5000 РґРѕР»Р°СЂРѕРІ.\r\n Р­С‚Рѕ Р±Р°Рі, РґРµРЅСЊРіРё РЅРµ РґР°РґСѓС‚";
 			// 
 			// MyForm
 			// 
@@ -264,11 +264,11 @@ namespace HUNTMMR2 {
 #pragma endregion
 	private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	public: System::Void button2_Click2(System::Object^ sender, System::EventArgs^ e)  // заполнение листбокс элементами
+	public: System::Void button2_Click2(System::Object^ sender, System::EventArgs^ e)  // Р·Р°РїРѕР»РЅРµРЅРёРµ Р»РёСЃС‚Р±РѕРєСЃ СЌР»РµРјРµРЅС‚Р°РјРё
 	{
 		setlocale(LC_CTYPE, "Russian");
 		SetConsoleCP(1251);
-		this->listBox1->Items->Clear(); //очистка от прошлых элементов 
+		this->listBox1->Items->Clear(); //РѕС‡РёСЃС‚РєР° РѕС‚ РїСЂРѕС€Р»С‹С… СЌР»РµРјРµРЅС‚РѕРІ 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
@@ -276,9 +276,9 @@ namespace HUNTMMR2 {
 			String^ fileName = openFileDialog1->FileName;
 			{
 				StreamReader^ din = File::OpenText(fileName);
-				// создаем список для хранения найденных значений
+				// СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РЅР°Р№РґРµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№
 				List<String^>^ valuesList1 = gcnew List<String^>();
-				// проходим по всем командам и игрокам
+				// РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј Рё РёРіСЂРѕРєР°Рј
 				for (int i = 0; i <= 11; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
@@ -293,22 +293,22 @@ namespace HUNTMMR2 {
 									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
 									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
 
-									// добавляем значение в список
+									// РґРѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРѕРє
 									valuesList1->Add(value);
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 					}
 				}
-				// добавляем все значения из списка в ListBox1
+				// РґРѕР±Р°РІР»СЏРµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ РёР· СЃРїРёСЃРєР° РІ ListBox1
 				listBox1->Items->AddRange(valuesList1->ToArray());
-				//очистка
+				//РѕС‡РёСЃС‚РєР°
 				this->listBox2->Items->Clear();
 				List<String^>^ valuesList2 = gcnew List<String^>();
-				// переводим курсор обратно в начало файла
+				// РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
-				// проходим по всем командам и игрокам
+				// РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј Рё РёРіСЂРѕРєР°Рј
 				for (int i = 0; i <= 11; i++)
 				{
 					for (int j = 0; j <= 2; j++)
@@ -324,15 +324,15 @@ namespace HUNTMMR2 {
 								if (valueIndex != -1) {
 									int valueEndIndex = str2->IndexOf("\"", valueIndex + 7);
 									String^ value = str2->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-									// добавляем значение в список
+									// РґРѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРѕРє
 									valuesList2->Add(value);
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 					}
 				}
-				// добавляем все значения из списка в ListBox2
+				// РґРѕР±Р°РІР»СЏРµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ РёР· СЃРїРёСЃРєР° РІ ListBox2
 				listBox2->Items->AddRange(valuesList2->ToArray());
 				din->Close();
 			}
@@ -342,11 +342,11 @@ namespace HUNTMMR2 {
 	}
 	private: System::Void listBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	public: System::Void button1_Click1(System::Object^ sender, System::EventArgs^ e)  //удаление элементов
+	public: System::Void button1_Click1(System::Object^ sender, System::EventArgs^ e)  //СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ
 	{
 		setlocale(LC_CTYPE, "Russian");
 		SetConsoleCP(1251);
-		this->listBox1->Items->Clear(); //очистка
+		this->listBox1->Items->Clear(); //РѕС‡РёСЃС‚РєР°
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
@@ -354,9 +354,9 @@ namespace HUNTMMR2 {
 			String^ fileName = openFileDialog1->FileName;
 			{
 				StreamReader^ din = File::OpenText(fileName);
-				// создаем список для хранения найденных значений
+				// СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РЅР°Р№РґРµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№
 				List<String^>^ valuesList1 = gcnew List<String^>();
-				// проходим по всем командам и игрокам
+				// РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј Рё РёРіСЂРѕРєР°Рј
 				for (int i = 0; i <= 11; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
@@ -370,37 +370,37 @@ namespace HUNTMMR2 {
 								if (valueIndex != -1) {
 									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
 									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									din->Close(); 
-									//удаляем строку из файла
+									//СѓРґР°Р»СЏРµРј СЃС‚СЂРѕРєСѓ РёР· С„Р°Р№Р»Р°
 									FileStream^ fs = gcnew FileStream(fileName, FileMode::Open, FileAccess::ReadWrite);
 									StreamReader^ sr = gcnew StreamReader(fs);
 									String^ contents = sr->ReadToEnd();
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									fs->Close(); 
 									sr->Close();
-									// создаем новый поток записи
+									// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ РїРѕС‚РѕРє Р·Р°РїРёСЃРё
 									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
 									StreamWriter^ sw = gcnew StreamWriter(fs);
 									sw->Write(contents->Replace(str, ""));
 									sw->Close();
 									fs->Close();
-									// открываем поток чтения снова
+									// РѕС‚РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ СЃРЅРѕРІР°
 									din = File::OpenText(fileName); 
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 					}
 				}
-				// добавляем все значения из списка в ListBox1
+				// РґРѕР±Р°РІР»СЏРµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ РёР· СЃРїРёСЃРєР° РІ ListBox1
 				listBox1->Items->AddRange(valuesList1->ToArray());
-				//очистка
+				//РѕС‡РёСЃС‚РєР°
 				this->listBox2->Items->Clear();
 				List<String^>^ valuesList2 = gcnew List<String^>();
-				// переводим курсор обратно в начало файла
+				// РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
-				// проходим по всем командам и игрокам
+				// РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј Рё РёРіСЂРѕРєР°Рј
 				for (int i = 0; i <= 11; i++)
 				{
 					for (int j = 0; j <= 2; j++)
@@ -416,25 +416,25 @@ namespace HUNTMMR2 {
 								if (valueIndex != -1) {
 									int valueEndIndex = str2->IndexOf("\"", valueIndex + 7);
 									String^ value = str2->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									din->Close(); 
-									//удаляем строку из файла
+									//СѓРґР°Р»СЏРµРј СЃС‚СЂРѕРєСѓ РёР· С„Р°Р№Р»Р°
 									FileStream^ fs = gcnew FileStream(fileName, FileMode::Open, FileAccess::ReadWrite);
 									StreamReader^ sr = gcnew StreamReader(fs);
 									String^ contents = sr->ReadToEnd();
-									fs->Close(); // закрываем поток чтения
+									fs->Close(); // Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									sr->Close();
-									// создаем новый поток записи
+									// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ РїРѕС‚РѕРє Р·Р°РїРёСЃРё
 									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write); 
 									StreamWriter^ sw = gcnew StreamWriter(fs);
 									sw->Write(contents->Replace(str2, ""));
 									sw->Close();
 									fs->Close();
-									din = File::OpenText(fileName); // открываем поток чтения снова
+									din = File::OpenText(fileName); // РѕС‚РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ СЃРЅРѕРІР°
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 					}
 				}
 				din->Close();
@@ -445,7 +445,7 @@ namespace HUNTMMR2 {
 	{
 		setlocale(LC_CTYPE, "Russian");
 		SetConsoleCP(1251);
-		this->listBox1->Items->Clear(); //очистка от прошлых элементов 
+		this->listBox1->Items->Clear(); //РѕС‡РёСЃС‚РєР° РѕС‚ РїСЂРѕС€Р»С‹С… СЌР»РµРјРµРЅС‚РѕРІ 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
@@ -453,9 +453,9 @@ namespace HUNTMMR2 {
 			String^ fileName = openFileDialog1->FileName;
 			{
 				StreamReader^ din = File::OpenText(fileName);
-				// создаем список для хранения найденных значений
+				// СЃРѕР·РґР°РµРј СЃРїРёСЃРѕРє РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РЅР°Р№РґРµРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№
 				List<String^>^ valuesList1 = gcnew List<String^>();
-				// проходим по всем командам и игрокам
+				// РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј Рё РёРіСЂРѕРєР°Рј
 				for (int i = 0; i <= 11; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
@@ -469,39 +469,39 @@ namespace HUNTMMR2 {
 								if (valueIndex != -1) {
 									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
 									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-									// добавляем значение в список
+									// РґРѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРѕРє
 									valuesList1->Add(value);
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									din->Close();
-									//удаляем строку из файла
+									//СѓРґР°Р»СЏРµРј СЃС‚СЂРѕРєСѓ РёР· С„Р°Р№Р»Р°
 									FileStream^ fs = gcnew FileStream(fileName, FileMode::Open, FileAccess::ReadWrite);
 									StreamReader^ sr = gcnew StreamReader(fs);
 									String^ contents = sr->ReadToEnd();
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									fs->Close();
 									sr->Close();
-									// создаем новый поток записи
+									// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ РїРѕС‚РѕРє Р·Р°РїРёСЃРё
 									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
 									StreamWriter^ sw = gcnew StreamWriter(fs);
 									sw->Write(contents->Replace(str, ""));
 									sw->Close();
 									fs->Close();
-									// открываем поток чтения снова
+									// РѕС‚РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ СЃРЅРѕРІР°
 									din = File::OpenText(fileName);
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 					}
 				}
-				// добавляем все значения из списка в ListBox1
+				// РґРѕР±Р°РІР»СЏРµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ РёР· СЃРїРёСЃРєР° РІ ListBox1
 				listBox1->Items->AddRange(valuesList1->ToArray());
-				//очистка
+				//РѕС‡РёСЃС‚РєР°
 				this->listBox2->Items->Clear();
 				List<String^>^ valuesList2 = gcnew List<String^>();
-				// переводим курсор обратно в начало файла
+				// РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
-				// проходим по всем командам и игрокам
+				// РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј РєРѕРјР°РЅРґР°Рј Рё РёРіСЂРѕРєР°Рј
 				for (int i = 0; i <= 11; i++)
 				{
 					for (int j = 0; j <= 2; j++)
@@ -517,32 +517,32 @@ namespace HUNTMMR2 {
 								if (valueIndex != -1) {
 									int valueEndIndex = str2->IndexOf("\"", valueIndex + 7);
 									String^ value = str2->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-									// добавляем значение в список
+									// РґРѕР±Р°РІР»СЏРµРј Р·РЅР°С‡РµРЅРёРµ РІ СЃРїРёСЃРѕРє
 									valuesList2->Add(value);
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									din->Close();
-									//удаляем строку из файла
+									//СѓРґР°Р»СЏРµРј СЃС‚СЂРѕРєСѓ РёР· С„Р°Р№Р»Р°
 									FileStream^ fs = gcnew FileStream(fileName, FileMode::Open, FileAccess::ReadWrite);
 									StreamReader^ sr = gcnew StreamReader(fs);
 									String^ contents = sr->ReadToEnd();
-									// закрываем поток чтения
+									// Р·Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ
 									fs->Close();
 									sr->Close();
-									// создаем новый поток записи
+									// СЃРѕР·РґР°РµРј РЅРѕРІС‹Р№ РїРѕС‚РѕРє Р·Р°РїРёСЃРё
 									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
 									StreamWriter^ sw = gcnew StreamWriter(fs);
 									sw->Write(contents->Replace(str2, ""));
 									sw->Close();
 									fs->Close();
-									// открываем поток чтения снова
+									// РѕС‚РєСЂС‹РІР°РµРј РїРѕС‚РѕРє С‡С‚РµРЅРёСЏ СЃРЅРѕРІР°
 									din = File::OpenText(fileName);
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // РїРµСЂРµРІРѕРґРёРј РєСѓСЂСЃРѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 					}
 				}
-				// добавляем все значения из списка в ListBox2
+				// РґРѕР±Р°РІР»СЏРµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ РёР· СЃРїРёСЃРєР° РІ ListBox2
 				listBox2->Items->AddRange(valuesList2->ToArray());
 				din->Close();
 			}

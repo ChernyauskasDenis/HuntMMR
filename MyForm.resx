@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Для того чтобы статистика отображалась корректно, приходится чистить XML файл.
+Сделать это нужно, до выхода в главное меню, после завершения миссии. 
+Именно в этот момент файл обновляется на Вашем ПК.
+Иначе могут показыватся старые результаты в перемешку с новыми.
+</value>
+  </data>
 </root>

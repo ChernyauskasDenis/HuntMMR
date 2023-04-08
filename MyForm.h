@@ -195,6 +195,7 @@ namespace HUNTMMR2 {
 			this->label5->Size = System::Drawing::Size(266, 36);
 			this->label5->TabIndex = 13;
 			this->label5->Text = L"— по нажатию покажет информацию,\r\n  без каких либо изменений";
+			this->label5->Click += gcnew System::EventHandler(this, &MyForm::label5_Click_1);
 			// 
 			// button3
 			// 
@@ -230,7 +231,7 @@ namespace HUNTMMR2 {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(15, 440);
+			this->label8->Location = System::Drawing::Point(31, 440);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(185, 65);
 			this->label8->TabIndex = 17;
@@ -548,5 +549,7 @@ namespace HUNTMMR2 {
 			}
 		}
 	}
+private: System::Void label5_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

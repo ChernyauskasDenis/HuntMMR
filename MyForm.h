@@ -230,7 +230,7 @@ namespace HUNTMMR2 {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(15, 440);
+			this->label8->Location = System::Drawing::Point(31, 440);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(185, 65);
 			this->label8->TabIndex = 17;
@@ -263,6 +263,8 @@ namespace HUNTMMR2 {
 		}
 #pragma endregion
 	private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void listBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	public: System::Void button2_Click2(System::Object^ sender, System::EventArgs^ e)  // заполнение листбокс элементами
 	{
@@ -338,10 +340,7 @@ namespace HUNTMMR2 {
 			}
 		}
 	}
-	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void listBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
+
 	public: System::Void button1_Click1(System::Object^ sender, System::EventArgs^ e)  //удаление элементов
 	{
 		setlocale(LC_CTYPE, "Russian");
@@ -371,13 +370,13 @@ namespace HUNTMMR2 {
 									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
 									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
 									// закрываем поток чтения
-									din->Close(); 
+									din->Close();
 									//удаляем строку из файла
 									FileStream^ fs = gcnew FileStream(fileName, FileMode::Open, FileAccess::ReadWrite);
 									StreamReader^ sr = gcnew StreamReader(fs);
 									String^ contents = sr->ReadToEnd();
 									// закрываем поток чтения
-									fs->Close(); 
+									fs->Close();
 									sr->Close();
 									// создаем новый поток записи
 									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
@@ -386,11 +385,12 @@ namespace HUNTMMR2 {
 									sw->Close();
 									fs->Close();
 									// открываем поток чтения снова
-									din = File::OpenText(fileName); 
+									din = File::OpenText(fileName);
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						// переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); 
 					}
 				}
 				// добавляем все значения из списка в ListBox1
@@ -417,7 +417,7 @@ namespace HUNTMMR2 {
 									int valueEndIndex = str2->IndexOf("\"", valueIndex + 7);
 									String^ value = str2->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
 									// закрываем поток чтения
-									din->Close(); 
+									din->Close();
 									//удаляем строку из файла
 									FileStream^ fs = gcnew FileStream(fileName, FileMode::Open, FileAccess::ReadWrite);
 									StreamReader^ sr = gcnew StreamReader(fs);
@@ -425,23 +425,25 @@ namespace HUNTMMR2 {
 									fs->Close(); // закрываем поток чтения
 									sr->Close();
 									// создаем новый поток записи
-									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write); 
+									fs = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
 									StreamWriter^ sw = gcnew StreamWriter(fs);
 									sw->Write(contents->Replace(str2, ""));
 									sw->Close();
 									fs->Close();
-									din = File::OpenText(fileName); // открываем поток чтения снова
+									// открываем поток чтения снова
+									din = File::OpenText(fileName); 
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						// переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); 
 					}
 				}
 				din->Close();
 			}
 		}
 	}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		setlocale(LC_CTYPE, "Russian");
 		SetConsoleCP(1251);
@@ -539,7 +541,8 @@ namespace HUNTMMR2 {
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						// переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); 
 					}
 				}
 				// добавляем все значения из списка в ListBox2
@@ -548,5 +551,5 @@ namespace HUNTMMR2 {
 			}
 		}
 	}
-};
+	};
 }

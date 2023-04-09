@@ -281,7 +281,7 @@ namespace HUNTMMR2 {
 				// создаем список для хранения найденных значений
 				List<String^>^ valuesList1 = gcnew List<String^>();
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++) {
+				for (int i = 0; i <= 50; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
 						String^ str;
@@ -300,7 +300,8 @@ namespace HUNTMMR2 {
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						// переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); 
 					}
 				}
 				// добавляем все значения из списка в ListBox1
@@ -311,7 +312,7 @@ namespace HUNTMMR2 {
 				// переводим курсор обратно в начало файла
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++)
+				for (int i = 0; i <= 50; i++)
 				{
 					for (int j = 0; j <= 2; j++)
 					{
@@ -331,7 +332,8 @@ namespace HUNTMMR2 {
 								}
 							}
 						}
-						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+						// переводим курсор обратно в начало файла
+						din->BaseStream->Seek(0, SeekOrigin::Begin); 
 					}
 				}
 				// добавляем все значения из списка в ListBox2
@@ -356,7 +358,7 @@ namespace HUNTMMR2 {
 				// создаем список для хранения найденных значений
 				List<String^>^ valuesList1 = gcnew List<String^>();
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++) {
+				for (int i = 0; i <= 50; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
 						String^ str;
@@ -401,7 +403,7 @@ namespace HUNTMMR2 {
 				// переводим курсор обратно в начало файла
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++)
+				for (int i = 0; i <= 50; i++)
 				{
 					for (int j = 0; j <= 2; j++)
 					{
@@ -458,7 +460,7 @@ namespace HUNTMMR2 {
 				// создаем список для хранения найденных значений
 				List<String^>^ valuesList1 = gcnew List<String^>();
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++) {
+				for (int i = 0; i <= 50; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
 						String^ str;
@@ -504,7 +506,7 @@ namespace HUNTMMR2 {
 				// переводим курсор обратно в начало файла
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++)
+				for (int i = 0; i <= 50; i++)
 				{
 					for (int j = 0; j <= 2; j++)
 					{
@@ -551,5 +553,6 @@ namespace HUNTMMR2 {
 			}
 		}
 	}
-	};
+};
+
 }

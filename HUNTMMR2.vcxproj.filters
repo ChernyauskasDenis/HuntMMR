@@ -24,4 +24,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ucrtbase.dll">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="vcruntime140.dll">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+  </ItemGroup>
 </Project>

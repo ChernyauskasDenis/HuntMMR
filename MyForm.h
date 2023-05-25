@@ -15,7 +15,8 @@
 #include <fstream>
 #include <string>
 #include <codecvt>
-
+#include <chrono>
+#include <thread>
 
 namespace HUNTMMR2 {
 
@@ -27,7 +28,7 @@ namespace HUNTMMR2 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
-
+	using namespace System::Threading;
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
@@ -230,12 +231,12 @@ namespace HUNTMMR2 {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(31, 440);
+			this->label8->Location = System::Drawing::Point(15, 440);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(185, 65);
+			this->label8->Size = System::Drawing::Size(241, 52);
 			this->label8->TabIndex = 17;
 			this->label8->Text = L"P.S. Из-за отчиски файла,\r\n в главном меню будет предлагать\r\n залогинится учёткой"
-				L" крайтек,\r\n для получения 5000 долларов.\r\n Это баг, деньги не дадут";
+				L" крайтек,\r\n для получения 5000. Это баг, деньги не дадут";
 			// 
 			// MyForm
 			// 
@@ -264,193 +265,11 @@ namespace HUNTMMR2 {
 #pragma endregion
 	private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void listBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-		   // заполнение листбокс элементами  Показать результат
-	public: System::Void button2_Click2(System::Object^ sender, System::EventArgs^ e)
+	public: System::Void button2_Click2(System::Object^ sender, System::EventArgs^ e)  // заполнение листбокс элементами
 	{
 		setlocale(LC_CTYPE, "Russian");
 		SetConsoleCP(1251);
-		this->listBox1->Items->Clear(); // Очистка от прошлых элементов
-		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
-		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-		{
-			String^ fileName = openFileDialog1->FileName;
-			{
-				// Создаем список для хранения найденных значений
-				List<String^>^ valuesList1 = gcnew List<String^>();
-
-				// Проходим по всем командам и игрокам
-				for (int i = 0; i <= 50; i++)
-				{
-					for (int j = 0; j <= 2; j++)
-					{
-						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
-						String^ str;
-						int lineNum = 0;
-						StreamReader^ din = File::OpenText(fileName);
-
-						while ((str = din->ReadLine()) != nullptr)
-						{
-							lineNum++;
-							if (str->Contains(searchStr))
-							{
-								int valueIndex = str->IndexOf("value=\"");
-								if (valueIndex != -1)
-								{
-									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
-									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-
-									// Добавляем значение в список
-									valuesList1->Add(value);
-								}
-							}
-						}
-
-						din->Close();
-					}
-				}
-
-				// Добавляем все значения из списка в ListBox1
-				listBox1->Items->AddRange(valuesList1->ToArray());
-
-				// Очистка
-				this->listBox2->Items->Clear();
-				List<String^>^ valuesList2 = gcnew List<String^>();
-
-				// Проходим по всем командам и игрокам
-				for (int i = 0; i <= 50; i++)
-				{
-					for (int j = 0; j <= 2; j++)
-					{
-						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_mmr\" value=\"", i, j);
-						String^ str2;
-						int lineNum = 0;
-						StreamReader^ din = File::OpenText(fileName);
-
-						while ((str2 = din->ReadLine()) != nullptr)
-						{
-							lineNum++;
-							if (str2->Contains(searchStr))
-							{
-								int valueIndex = str2->IndexOf("value=\"");
-								if (valueIndex != -1)
-								{
-									int valueEndIndex = str2->IndexOf("\"", valueIndex + 7);
-									String^ value = str2->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-
-									// Добавляем значение в список
-									valuesList2->Add(value);
-								}
-							}
-						}
-
-						din->Close();
-					}
-				}
-
-				// Добавляем все значения из списка в ListBox2
-				listBox2->Items->AddRange(valuesList2->ToArray());
-			}
-		}
-	}
-
-	public: System::Void button1_Click1(System::Object^ sender, System::EventArgs^ e) //Отчиска XML файла от игроков
-	{
-		setlocale(LC_CTYPE, "Russian");
-		SetConsoleCP(1251);
-		this->listBox1->Items->Clear(); // Очистка
-		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
-		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-		{
-			String^ fileName = openFileDialog1->FileName;
-			String^ tempFileName = fileName + ".tmp"; // Имя временного файла
-			{
-				// Создаем список для хранения найденных значений
-				List<String^>^ valuesList1 = gcnew List<String^>();
-
-				// Проходим по всем командам и игрокам
-				for (int i = 0; i <= 50; i++)
-				{
-					for (int j = 0; j <= 2; j++)
-					{
-						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
-						String^ str;
-						int lineNum = 0;
-						StreamReader^ din = File::OpenText(fileName);
-						StreamWriter^ sw = gcnew StreamWriter(tempFileName); // Открываем временный файл для записи
-
-						while ((str = din->ReadLine()) != nullptr)
-						{
-							lineNum++;
-							if (str->Contains(searchStr))
-							{
-								int valueIndex = str->IndexOf("value=\"");
-								if (valueIndex != -1)
-								{
-									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
-									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-									// Записываем остальное содержимое файла во временный файл
-									sw->WriteLine(str);
-								}
-							}
-							else
-							{
-								// Записываем строку во временный файл
-								sw->WriteLine(str);
-							}
-						}
-
-						din->Close();
-						sw->Close();
-						File::Delete(fileName);                 // Удаляем исходный файл
-						File::Move(tempFileName, fileName);     // Заменяем исходный файл временным файлом
-
-						// Переводим курсор обратно в начало файла
-						din = File::OpenText(fileName);
-						sw = gcnew StreamWriter(tempFileName); // Открываем временный файл для записи
-
-						// Проходим по всем командам и игрокам
-						for (int i = 0; i <= 50; i++)
-						{
-							for (int j = 0; j <= 2; j++)
-							{
-								String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_mmr\" value=\"", i, j);
-								String^ str2;
-								int lineNum = 0;
-
-								while ((str2 = din->ReadLine()) != nullptr)
-								{
-									lineNum++;
-									if (!str2->Contains(searchStr))
-									{
-										// Записываем строку во временный файл
-										sw->WriteLine(str2);
-									}
-								}
-
-								din->Close();
-								sw->Close();
-								File::Delete(fileName);                 // Удаляем исходный файл
-								File::Move(tempFileName, fileName);     // Заменяем исходный файл временным файлом
-
-								// Переводим курсор обратно в начало файла
-								din = File::OpenText(fileName);
-								sw = gcnew StreamWriter(tempFileName); // Открываем временный файл для записи
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) //Показать и отчистить
-	{
-		setlocale(LC_CTYPE, "Russian");
-		SetConsoleCP(1251);
-		this->listBox1->Items->Clear(); // очистка от прошлых элементов 
+		this->listBox1->Items->Clear(); //очистка от прошлых элементов 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
@@ -458,46 +277,299 @@ namespace HUNTMMR2 {
 			String^ fileName = openFileDialog1->FileName;
 			{
 				StreamReader^ din = File::OpenText(fileName);
+				// создаем список для хранения найденных значений
 				List<String^>^ valuesList1 = gcnew List<String^>();
-				ProcessLines(din, valuesList1, "<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", fileName);
+				// проходим по всем командам и игрокам
+				for (int i = 0; i <= 11; i++) {
+					for (int j = 0; j <= 2; j++) {
+						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
+						String^ str;
+						int lineNum = 0;
+						while ((str = din->ReadLine()) != nullptr)
+						{
+							lineNum++;
+							if (str->Contains(searchStr)) {
+								int valueIndex = str->IndexOf("value=\"");
+								if (valueIndex != -1) {
+									int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
+									String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
+
+									// добавляем значение в список
+									valuesList1->Add(value);
+								}
+							}
+						}
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+					}
+				}
+				// добавляем все значения из списка в ListBox1
+				listBox1->Items->AddRange(valuesList1->ToArray());
+				//очистка
+				this->listBox2->Items->Clear();
+				List<String^>^ valuesList2 = gcnew List<String^>();
+				// переводим курсор обратно в начало файла
+				din->BaseStream->Seek(0, SeekOrigin::Begin);
+				// проходим по всем командам и игрокам
+				for (int i = 0; i <= 11; i++)
+				{
+					for (int j = 0; j <= 2; j++)
+					{
+						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_mmr\" value=\"", i, j);
+						String^ str2;
+						int lineNum = 0;
+						while ((str2 = din->ReadLine()) != nullptr)
+						{
+							lineNum++;
+							if (str2->Contains(searchStr)) {
+								int valueIndex = str2->IndexOf("value=\"");
+								if (valueIndex != -1) {
+									int valueEndIndex = str2->IndexOf("\"", valueIndex + 7);
+									String^ value = str2->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
+									// добавляем значение в список
+									valuesList2->Add(value);
+								}
+							}
+						}
+						din->BaseStream->Seek(0, SeekOrigin::Begin); // переводим курсор обратно в начало файла
+					}
+				}
+				// добавляем все значения из списка в ListBox2
+				listBox2->Items->AddRange(valuesList2->ToArray());
 				din->Close();
-
-				// Открываем файл снова для других операций
-				StreamReader^ din2 = File::OpenText(fileName);
-				// Другие действия с файлом, если необходимо
-
-				din2->Close();
 			}
 		}
 	}
-
-		   void ProcessLines(StreamReader^ din, List<String^>^ valuesList, String^ searchStr, String^ fileName)
-		   {
-			   String^ str;
-			   int lineNum = 0;
-			   List<String^>^ lines = gcnew List<String^>(); // Создаем список для хранения строк
-
-			   while ((str = din->ReadLine()) != nullptr)
-			   {
-				   lineNum++;
-				   if (str->Contains(searchStr)) {
-					   int valueIndex = str->IndexOf("value=\"");
-					   if (valueIndex != -1) {
-						   int valueEndIndex = str->IndexOf("\"", valueIndex + 7);
-						   String^ value = str->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
-						   valuesList->Add(value);
-						   continue; // Пропускаем строку
-					   }
-				   }
-				   lines->Add(str); // Добавляем строку в список
-			   }
-
-			   din->Close();
-
-			   // Записываем строки из списка обратно в файл
-			   File::WriteAllLines(fileName, lines);
-		   }
-
+	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	;
+	private: System::Void listBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button1_Click1(System::Object^ sender, System::EventArgs^ e)
+	{
+		setlocale(LC_CTYPE, "Russian");
+		SetConsoleCP(1251);
+		this->listBox1->Items->Clear(); // очистка
+		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			String^ fileName = openFileDialog1->FileName;
+			{
+				// создаем список для хранения найденных значений
+				List<String^>^ valuesList1 = gcnew List<String^>();
+
+				String^ contents; // переменная для хранения содержимого файла
+
+				// Чтение содержимого файла
+				try
+				{
+					contents = File::ReadAllText(fileName);
+				}
+				catch (Exception^ ex)
+				{
+					// Обработка ошибок чтения файла
+					MessageBox::Show("Ошибка чтения файла: " + ex->Message);
+					return;
+				}
+
+				// Создаем переменную для обновленного содержимого файла
+				String^ updatedContents = contents;
+
+				// проходим по всем командам и игрокам
+				for (int i = 0; i <= 50; i++)
+				{
+					for (int j = 0; j <= 2; j++)
+					{
+						String^ searchStr1 = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
+						String^ searchStr2 = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_mmr\" value=\"", i, j);
+						String^ searchStr3 = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_profileid\" value=\"", i, j);
+
+						int startIndex = 0;
+						while ((startIndex = updatedContents->IndexOf(searchStr1, startIndex)) != -1)
+						{
+							int valueIndex = updatedContents->IndexOf("value=\"", startIndex);
+							if (valueIndex != -1)
+							{
+								int valueEndIndex = updatedContents->IndexOf("\"", valueIndex + 7);
+								// заменяем содержимое строки на пробелы
+								updatedContents = updatedContents->Remove(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								startIndex = valueEndIndex + 1;
+
+								// добавляем значение в список
+								valuesList1->Add("");
+							}
+						}
+
+						startIndex = 0;
+						while ((startIndex = updatedContents->IndexOf(searchStr2, startIndex)) != -1)
+						{
+							int valueIndex = updatedContents->IndexOf("value=\"", startIndex);
+							if (valueIndex != -1)
+							{
+								int valueEndIndex = updatedContents->IndexOf("\"", valueIndex + 7);
+								// заменяем содержимое строки на пробелы
+								updatedContents = updatedContents->Remove(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								startIndex = valueEndIndex + 1;
+
+								// добавляем значение в список
+								valuesList1->Add("");
+							}
+						}
+
+						startIndex = 0;
+						while ((startIndex = updatedContents->IndexOf(searchStr3, startIndex)) != -1)
+						{
+							int valueIndex = updatedContents->IndexOf("value=\"", startIndex);
+							if (valueIndex != -1)
+							{
+								int valueEndIndex = updatedContents->IndexOf("\"", valueIndex + 7);
+								// заменяем содержимое строки на пробелы
+								updatedContents = updatedContents->Remove(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								startIndex = valueEndIndex + 1;
+
+								// добавляем значение в список
+								valuesList1->Add("");
+							}
+						}
+					}
+				}
+
+				// удаляем пустые строки
+				updatedContents = updatedContents->Replace("\r\n\r\n", "\r\n");
+
+				// Запись обновленного содержимого файла
+				try
+				{
+					File::WriteAllText(fileName, updatedContents);
+				}
+				catch (Exception^ ex)
+				{
+					// Обработка ошибок записи файла
+					MessageBox::Show("Ошибка записи файла: " + ex->Message);
+					return;
+				}
+				//очистка
+				this->listBox2->Items->Clear();
+				MessageBox::Show(" Отчиска прошла успешно  ");
+
+			}
+		}
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		setlocale(LC_CTYPE, "Russian");
+		SetConsoleCP(1251);
+		//очистка
+		this->listBox2->Items->Clear();
+		this->listBox1->Items->Clear();
+
+		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+
+		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			String^ fileName = openFileDialog1->FileName;
+			{
+				// создаем список для хранения найденных значений
+				List<String^>^ valuesList1 = gcnew List<String^>();
+
+				String^ contents; // переменная для хранения содержимого файла
+
+				// Чтение содержимого файла
+				try
+				{
+					contents = File::ReadAllText(fileName);
+				}
+				catch (Exception^ ex)
+				{
+					// Обработка ошибок чтения файла
+					MessageBox::Show("Ошибка чтения файла: " + ex->Message);
+					return;
+				}
+
+				// Создаем переменную для обновленного содержимого файла
+				String^ updatedContents = contents;
+
+				// проходим по всем командам и игрокам
+				for (int i = 0; i <= 50; i++)
+				{
+					for (int j = 0; j <= 2; j++)
+					{
+						String^ searchStr1 = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
+						String^ searchStr2 = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_mmr\" value=\"", i, j);
+						String^ searchStr3 = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_profileid\" value=\"", i, j);
+
+						int startIndex = 0;
+						while ((startIndex = updatedContents->IndexOf(searchStr1, startIndex)) != -1)
+						{
+							int valueIndex = updatedContents->IndexOf("value=\"", startIndex);
+							if (valueIndex != -1)
+							{
+								int valueEndIndex = updatedContents->IndexOf("\"", valueIndex + 7);
+								// получаем значение строки
+								String^ value = updatedContents->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								// добавляем значение в список
+								valuesList1->Add(value);
+								// выводим значение в listBox1
+								this->listBox1->Items->Add(value);
+								// заменяем содержимое строки на пробелы
+								updatedContents = updatedContents->Remove(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								startIndex = valueEndIndex + 1;
+							}
+						}
+
+						startIndex = 0;
+						while ((startIndex = updatedContents->IndexOf(searchStr2, startIndex)) != -1)
+						{
+							int valueIndex = updatedContents->IndexOf("value=\"", startIndex);
+							if (valueIndex != -1)
+							{
+								int valueEndIndex = updatedContents->IndexOf("\"", valueIndex + 7);
+								// получаем значение строки
+								String^ value = updatedContents->Substring(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								// добавляем значение в список
+								valuesList1->Add(value);
+								// выводим значение в listBox2
+								this->listBox2->Items->Add(value);
+								// заменяем содержимое строки на пробелы
+								updatedContents = updatedContents->Remove(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								startIndex = valueEndIndex + 1;
+							}
+						}
+
+						startIndex = 0;
+						while ((startIndex = updatedContents->IndexOf(searchStr3, startIndex)) != -1)
+						{
+							int valueIndex = updatedContents->IndexOf("value=\"", startIndex);
+							if (valueIndex != -1)
+							{
+								int valueEndIndex = updatedContents->IndexOf("\"", valueIndex + 7);
+								// заменяем содержимое строки на пробелы
+								updatedContents = updatedContents->Remove(valueIndex + 7, valueEndIndex - valueIndex - 7);
+								startIndex = valueEndIndex + 1;
+
+								// добавляем значение в список
+								valuesList1->Add("");
+							}
+						}
+					}
+				}
+
+				// удаляем пустые строки
+				updatedContents = updatedContents->Replace("\r\n\r\n", "\r\n");
+
+				// Запись обновленного содержимого файла
+				try
+				{
+					File::WriteAllText(fileName, updatedContents);
+				}
+				catch (Exception^ ex)
+				{
+					// Обработка ошибок записи файла
+					MessageBox::Show("Ошибка записи файла: " + ex->Message);
+					return;
+				}
+			}
+		}
+	}
+	};
 }

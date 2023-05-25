@@ -267,8 +267,6 @@ namespace HUNTMMR2 {
 	}
 	public: System::Void button2_Click2(System::Object^ sender, System::EventArgs^ e)  // заполнение листбокс элементами
 	{
-		setlocale(LC_CTYPE, "Russian");
-		SetConsoleCP(1251);
 		this->listBox1->Items->Clear(); //очистка от прошлых элементов 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
@@ -280,7 +278,7 @@ namespace HUNTMMR2 {
 				// создаем список для хранения найденных значений
 				List<String^>^ valuesList1 = gcnew List<String^>();
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++) {
+				for (int i = 0; i <= 50; i++) {
 					for (int j = 0; j <= 2; j++) {
 						String^ searchStr = String::Format("<Attr name=\"MissionBagPlayer_{0}_{1}_blood_line_name\" value=\"", i, j);
 						String^ str;
@@ -310,7 +308,7 @@ namespace HUNTMMR2 {
 				// переводим курсор обратно в начало файла
 				din->BaseStream->Seek(0, SeekOrigin::Begin);
 				// проходим по всем командам и игрокам
-				for (int i = 0; i <= 11; i++)
+				for (int i = 0; i <= 50; i++)
 				{
 					for (int j = 0; j <= 2; j++)
 					{
@@ -339,14 +337,10 @@ namespace HUNTMMR2 {
 			}
 		}
 	}
-	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void listBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click1(System::Object^ sender, System::EventArgs^ e)
 	{
-		setlocale(LC_CTYPE, "Russian");
-		SetConsoleCP(1251);
 		this->listBox1->Items->Clear(); // очистка
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 		openFileDialog1->Filter = "XML Files (*.xml)|*.xml|All Files (*.*)|*.*";
@@ -456,9 +450,7 @@ namespace HUNTMMR2 {
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		setlocale(LC_CTYPE, "Russian");
-		SetConsoleCP(1251);
-		//очистка
+				//очистка
 		this->listBox2->Items->Clear();
 		this->listBox1->Items->Clear();
 
